@@ -11,6 +11,7 @@ export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
   faTimes = faTimes;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter();
 
   constructor() {
     console.log(this.task);
@@ -20,5 +21,9 @@ export class TaskItemComponent implements OnInit {
 
   onClick(task: Task) {
     this.onDeleteTask.emit(task);
+  }
+
+  onToggle(task: Task) {
+    this.onToggleReminder.emit(task);
   }
 }
